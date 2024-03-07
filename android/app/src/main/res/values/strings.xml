@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">RNTest</string>
+
+    <string name="facebook_app_id">357191806733117</string>
+    <string name="fb_login_protocol_scheme">fb357191806733117</string>
+    <string name="facebook_client_token">e332eabe3a47ec75089c3ea4c59879b4</string>
+
+
+</resources>
