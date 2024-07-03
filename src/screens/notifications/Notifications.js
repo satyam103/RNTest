@@ -1,8 +1,9 @@
-import React, {useRef, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {Animated, Text, View, StyleSheet, Button} from 'react-native';
 import GlobalStyle from './GlobalStyle';
 import Video from 'react-native-video';
 import {Easing} from 'react-native';
+import notifee from '@notifee/react-native';
 
 const Notifications = () => {
   const [animatedValue] = useState(new Animated.Value(0));
@@ -11,6 +12,17 @@ const Notifications = () => {
   function onBuffer() {}
   function onEnd() {}
   function videoError() {}
+  useEffect(() => {
+    const permission = async () => {
+      try {
+        const setting = notifee.getNotificationSettings();
+        console.log(setting);
+      } catch (error) {
+        console.log(error, 'error in alarm permission');
+      }
+    };
+    permission();
+  });
 
   const fadeIn = () => {
     // Will change fadeAnim value to 1 in 5 seconds
@@ -72,7 +84,8 @@ const Notifications = () => {
               opacity: fadeAnim,
             },
           ]}>
-          <View style={{height:80,width:'100%',backgroundColor: 'powderblue',}}>
+          <View
+            style={{height: 80, width: '100%', backgroundColor: 'powderblue'}}>
             <Text style={styles.fadingText}>Fading View!</Text>
           </View>
         </Animated.View>
@@ -118,7 +131,6 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     zIndex: 0,
-    
   },
   fadingText: {
     fontSize: 28,

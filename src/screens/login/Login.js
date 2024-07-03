@@ -29,6 +29,7 @@ import {
   LoginManager,
   GraphRequest,
   GraphRequestManager,
+  LoginButton,
 } from 'react-native-fbsdk';
 // ====================== validation Schema ==========================
 const loginSchema = yup.object({
@@ -347,6 +348,7 @@ const Login = props => {
                 // .catch(error => console.log(error))
               }
             />
+            <LoginButton />
             <Pressable onPress={onFBLogin}>
               <Text>Fb login</Text>
             </Pressable>
